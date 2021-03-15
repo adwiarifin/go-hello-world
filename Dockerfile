@@ -7,6 +7,8 @@ RUN go build hello-world.go
 
 FROM alpine:3.13
 
+LABEL org.opencontainers.image.source="https://github.com/adwiarifin/go-hello-world"
+
 COPY --from=0 "/go/src/app/hello-world" hello-world
 
 ENTRYPOINT ./hello-world
