@@ -12,5 +12,8 @@ jobs:
     - name: Build the hello-world Docker image
       run: |
         echo $CR_PAT | docker login ghcr.io -u adwiarifin --password-stdin
+        docker build . --tag ghcr.io/adwiarifin/hello-world:latest
+        docker run ghcr.io/adwiarifin/hello-world:latest
+        docker push ghcr.io/adwiarifin/hello-world:latest
       env:
         CR_PAT: ${{ secrets.CR_PAT }}
